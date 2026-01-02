@@ -1,0 +1,1280 @@
+/* ============================================
+   CSS STYLE GUIDE FOR BEGINNERS
+   ============================================
+   
+   This file controls how the website looks.
+   CSS = Cascading Style Sheets
+   
+   Basic structure:
+   selector { property: value; }
+   
+   Example: h1 { color: blue; }
+   This makes all <h1> tags blue.
+   
+   Comments in CSS start with
+   They help explain what the code does.
+============================================ */
+
+
+/* ============================================
+   PART 1: RESET & GLOBAL STYLES
+   ============================================
+   
+   These styles apply to the entire page.
+   They establish baseline styling that we build upon.
+*/
+
+/* 
+   UNIVERSAL SELECTOR (*)
+   This applies to EVERY element on the page
+   margin: 0; padding: 0; removes default spacing
+   box-sizing: border-box; makes size calculations easier
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 
+   HTML TAG STYLES
+   These apply to the root <html> element
+   --primary-color is a CSS variable (reusable color)
+   Variables start with -- and are used with var()
+*/
+html {
+    scroll-behavior: smooth;
+    --primary-color: #0066cc;
+    --secondary-color: #f5f5f5;
+    --text-dark: #1a1a1a;
+    --text-light: #666666;
+    --accent-color: #ff6b35;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+   BODY STYLES
+   These apply to everything in the <body>
+*/
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+/* 
+   ANCHOR TAG STYLES
+   <a> tags are links
+*/
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* 
+   HEADING STYLES
+   h1, h2, h3, h4, h5, h6 are heading tags
+   Larger numbers = smaller size (h1 is biggest)
+*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+/* 
+   PARAGRAPH STYLES
+*/
+p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+
+/* ============================================
+   PART 2: UTILITY CLASSES
+   ============================================
+   
+   These classes are reusable throughout the HTML
+   They handle common layout and spacing tasks
+*/
+
+/* 
+   CONTAINER CLASS
+   This centers content and sets a max-width
+   Used to wrap page sections and control layout
+   
+   max-width: 1200px = content won't be wider than 1200 pixels
+   margin: 0 auto = centers the container horizontally
+*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* 
+   SKIP TO MAIN CONTENT LINK
+   This is for accessibility - keyboard users can skip navigation
+   position: absolute; puts it off-screen
+   When focused (user tabs to it), it appears
+*/
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 8px;
+    text-decoration: underline;
+    z-index: 100;
+}
+
+
+.skip-to-main:focus {
+    top: 0;
+}
+
+
+/* ============================================
+   PART 3: BUTTON STYLES
+   ============================================
+   
+   Buttons are interactive elements users click
+   Good button styling improves user experience
+*/
+
+/* 
+   BASE BUTTON STYLE
+   All buttons share these properties
+   cursor: pointer; changes cursor to hand on hover
+*/
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* 
+   PRIMARY BUTTON
+   The main action button (prominent, colorful)
+*/
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #0052a3;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(0, 102, 204, 0.4);
+}
+
+/* 
+   SECONDARY BUTTON
+   Alternative action button (less prominent)
+*/
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.1);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 102, 204, 0.3);
+}
+
+/* 
+   LARGE BUTTON
+   For important CTAs (calls to action)
+*/
+.btn-large {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+}
+
+
+/* ============================================
+   PART 4: HEADER & NAVIGATION
+   ============================================
+   
+   The header appears at the top of every page
+   Navigation helps users move around the site
+*/
+
+/* 
+   HEADER ELEMENT
+   The top section of the page
+   position: sticky keeps it visible when scrolling
+*/
+.header {
+    background-color: var(--white);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* 
+   NAVBAR (inside header)
+   Uses flexbox for horizontal layout
+   
+   display: flex = arrange items in a row
+   justify-content: space-between = push items to edges
+   align-items: center = vertically center items
+*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+}
+
+/* 
+   LOGO
+   The brand name/logo on the left
+*/
+.logo a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 
+   NAVIGATION LINKS
+   The menu items
+   
+   list-style: none removes bullet points
+   display: flex arranges items horizontally
+*/
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+
+.nav-links a {
+    color: var(--text-dark);
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+
+/* ============================================
+   PART 5: HERO SECTION
+   ============================================
+   
+   The hero is the first section users see
+   It should be eye-catching and clear
+*/
+
+/* 
+   HERO SECTION
+   Background gradient for visual interest
+   min-height: 100vh = takes up at least full screen height
+*/
+.hero {
+    position: relative;
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+    z-index: 2;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 3;
+}
+
+/* 
+   HERO CONTENT
+   The text and buttons in hero
+*/
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+/* 
+   HERO TITLE
+   The big headline
+*/
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: var(--white);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 
+   HERO SUBTITLE
+   Smaller text below headline
+*/
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.6;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+   CTA BUTTONS CONTAINER
+   The button group in hero
+   
+   display: flex = arranges buttons horizontally
+   gap: 1rem = space between buttons
+   justify-content: center = centers buttons
+   flex-wrap: wrap = buttons stack on mobile
+*/
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* ============================================
+   PART 6: SECTION HEADERS
+   ============================================
+   
+   Each section (services, why-us, etc.) has a header
+   Consistent styling makes the site feel organized
+*/
+
+/* 
+   SECTION HEADER
+   The title and subtitle at the top of sections
+*/
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header h2 {
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+
+/* ============================================
+   PART 7: SERVICES SECTION
+   ============================================
+   
+   Shows the services offered
+   Cards make information easy to scan
+*/
+
+/* 
+   SERVICES SECTION
+*/
+.services {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, var(--white) 0%, #f9fafb 100%);
+}
+
+/* 
+   SERVICES GRID
+   
+   CSS Grid = powerful layout system
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+   
+   This is a "responsive grid" that:
+   - auto-fit: fills available space
+   - minmax(300px, 1fr): each card is at least 300px, grows to fill space
+   - On mobile: 1 column (cards are 300px+)
+   - On tablet: 2 columns
+   - On desktop: 3 columns
+*/
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* 
+   SERVICE CARD
+   Individual service boxes
+*/
+.service-card {
+    background-color: var(--white);
+    padding: 0;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-image {
+    transform: scale(1.05);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin: 1.5rem 0 1rem;
+    display: block;
+}
+
+.service-card h3 {
+    margin: 0 1.5rem 0.75rem;
+    color: var(--text-dark);
+}
+
+.service-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 1.5rem 1.5rem;
+}
+
+
+/* ============================================
+   PART 8: WHY US & FEATURES SECTION
+   ============================================
+   
+   Builds trust by highlighting key benefits
+*/
+
+/* 
+   WHY US SECTION
+*/
+.why-us {
+    padding: 5rem 0;
+    background-color: var(--secondary-color);
+}
+
+/* 
+   FEATURES GRID
+   Similar responsive grid as services
+*/
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+/* 
+   FEATURE
+   Each benefit/feature in the grid
+*/
+.feature {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+}
+
+.feature:hover {
+    box-shadow: 0 15px 40px rgba(0, 102, 204, 0.15);
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+/* 
+   FEATURE NUMBER
+   The numbered circles (1, 2, 3, etc.)
+   
+   width/height = square shape
+   display: flex + align-items/justify-content = center content
+   background-color: gradient from blue to purple
+*/
+.feature-number {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+}
+
+
+.feature h3 {
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+
+/* ============================================
+   PART 9: PROCESS SECTION
+   ============================================
+   
+   Shows the step-by-step process
+   Reduces anxiety about the project workflow
+*/
+
+/* 
+   PROCESS SECTION
+*/
+.process {
+    padding: 5rem 0;
+    background-color: var(--white);
+}
+
+/* 
+   PROCESS STEPS
+   The step-by-step progression
+   4 columns on desktop, stacks on mobile
+*/
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* 
+   PROCESS STEP
+   Individual step in the process
+*/
+.process-step {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* 
+   STEP NUMBER
+   Large numbered circle (1, 2, 3, 4)
+*/
+.step-number {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+}
+
+
+.process-step h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+
+.process-step p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+
+/* ============================================
+   PART 10: TESTIMONIALS SECTION
+   ============================================
+   
+   Social proof: real customers saying good things
+   This builds credibility and trust
+*/
+
+/* 
+   TESTIMONIALS SECTION
+*/
+.testimonials {
+    padding: 5rem 0;
+    background-color: var(--secondary-color);
+}
+
+/* 
+   TESTIMONIALS GRID
+*/
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* 
+   TESTIMONIAL CARD
+   Individual customer testimonial
+*/
+.testimonial-card {
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.client-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--primary-color);
+}
+
+.stars {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.3rem;
+}
+
+.quote {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* 
+   CLIENT INFO
+   Name and company
+*/
+.client-info {
+    border-top: 1px solid var(--secondary-color);
+    padding-top: 1rem;
+}
+
+.client-info strong {
+    display: block;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.client-info p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+
+/* ============================================
+   PART 11: FINAL CTA SECTION
+   ============================================
+   
+   Last push to get users to contact you
+   Should be bold and compelling
+*/
+
+/* 
+   FINAL CTA SECTION
+   High contrast background to stand out
+*/
+.final-cta {
+    position: relative;
+    color: var(--white);
+    padding: 5rem 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.cta-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(255, 107, 53, 0.85) 100%);
+    z-index: 2;
+}
+
+.final-cta h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 3;
+}
+
+.final-cta p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 3;
+}
+
+
+/* ============================================
+   PART 12: CONTACT & FORM SECTION
+   ============================================
+   
+   Where visitors become leads
+   Clean, accessible form design
+*/
+
+/* 
+   CONTACT SECTION
+*/
+.contact {
+    padding: 5rem 0;
+    background-color: var(--white);
+}
+
+/* 
+   CONTACT FORM
+   
+   max-width: 600px = comfortable reading width
+   Form shouldn't be too wide
+*/
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 
+   FORM ROW
+   Groups form fields horizontally on desktop
+   
+   display: grid + grid-template-columns: 1fr 1fr = two columns
+   On mobile (small screens), CSS @media will stack them
+*/
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 
+   FORM GROUP
+   Individual form field wrapper
+*/
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* 
+   LABEL ELEMENTS
+   Field descriptions
+   Important for accessibility (screen readers)
+*/
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* 
+   INPUT & TEXTAREA & SELECT
+   Form input elements
+   
+   width: 100% = fills container width
+   padding = inside spacing
+   border = outline around field
+   border-radius = rounded corners
+   font-size = readable text
+   transition = smooth animation
+*/
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--white);
+    color: var(--text-dark);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.15);
+}
+
+/* 
+   PLACEHOLDER TEXT
+   The example text inside inputs
+*/
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #bbb;
+}
+
+/* 
+   FORM ACTIONS
+   The submit button and notice at bottom
+*/
+.form-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* 
+   FORM NOTICE
+   Reassurance text under submit button
+   Increases trust and form completion
+*/
+.form-notice {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+
+/* ============================================
+   PART 13: FOOTER
+   ============================================
+   
+   Information at bottom of page
+   Copyright, contact info, navigation
+*/
+
+/* 
+   FOOTER ELEMENT
+*/
+.footer {
+    background: linear-gradient(135deg, #1a2847 0%, #2d3e50 100%);
+    color: var(--white);
+    padding: 5rem 0 2rem;
+}
+
+/* 
+   FOOTER GRID
+   Three columns: About, Navigation, Contact
+   grid-template-columns: 1fr 1fr 1fr = three equal columns
+*/
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* 
+   FOOTER COLUMN
+   Individual column in footer
+*/
+.footer-column h4 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.footer-column p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+/* 
+   FOOTER LINKS
+   Navigation links in footer
+   list-style: none removes bullets
+*/
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* 
+   FOOTER CONTACT
+   Contact info in footer
+*/
+.footer-contact {
+    list-style: none;
+}
+
+.footer-contact li {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-contact a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 
+   FOOTER BOTTOM
+   Copyright text at very bottom
+*/
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* ============================================
+   PART 14: MOBILE RESPONSIVENESS
+   ============================================
+   
+   @media queries = different styles for different screen sizes
+   Mobile-first approach: base styles for mobile, then add for larger screens
+*/
+
+/* 
+   MEDIUM SCREENS (tablets)
+   max-width: 768px = screens smaller than 768 pixels wide
+*/
+@media (max-width: 768px) {
+    
+
+    .hero {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+    
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 2rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+
+    .services-grid,
+    .features-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+
+    .services,
+    .why-us,
+    .process,
+    .testimonials {
+        padding: 3rem 0;
+    }
+}
+
+/* 
+   SMALL SCREENS (phones)
+   max-width: 480px = very small phones
+*/
+@media (max-width: 480px) {
+    
+
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+
+    .container {
+        padding: 0 1rem;
+    }
+    
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+    
+
+    .services-grid,
+    .features-grid,
+    .testimonials-grid {
+        gap: 1rem;
+    }
+    
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+
+/* ============================================
+   PART 15: ANIMATIONS & TRANSITIONS
+   ============================================
+   
+   These make the site feel more interactive
+   and responsive to user actions
+*/
+
+/* 
+   HOVER ANIMATIONS
+   These are handled throughout the CSS above
+   
+   Examples:
+   - transform: translateY(-2px) moves element up
+   - transition: all 0.3s ease smoothly animates changes
+   - box-shadow changes add depth
+   
+   These create subtle, professional interactions
+   without being distracting
+*/
+
+
+/* ============================================
+   PART 16: PRINT STYLES
+   ============================================
+   
+   How the page looks when printed
+   @media print applies when user prints the page
+*/
+
+@media print {
+
+    .header,
+    .footer {
+        display: none;
+    }
+    
+
+    body {
+        color: black;
+        background-color: white;
+    }
+    
+
+    a {
+        text-decoration: underline;
+    }
+    
+
+    .btn {
+        display: none;
+    }
+}
+
+
+/* ============================================
+   END OF CSS FILE
+   
+   KEY CONCEPTS TO REMEMBER:
+   
+   1. SELECTORS: Choose which elements to style
+      - Element selectors: h1, p, div
+      - Class selectors: .container, .btn
+      - ID selectors: #contact
+   
+   2. PROPERTIES: What to change
+      - Color, size, spacing, positioning
+      - Animations, shadows, borders
+   
+   3. VALUES: How much or what
+      - Colors: blue, #0066cc, rgb(0, 102, 204)
+      - Sizes: 16px, 1rem, 100%
+      - Keywords: center, bold, solid
+   
+   4. SPECIFICITY: More specific rules win
+      - ID > Class > Element
+      - !important (use sparingly)
+   
+   5. INHERITANCE: Some properties passed down
+      - font-family, color
+      - Not: padding, margin, border
+   
+   6. CASCADE: Later rules override earlier ones
+      - Put mobile styles first
+      - Then add @media for larger screens
+   
+   7. RESPONSIVE DESIGN: Works on all sizes
+      - Use percentages and em/rem units
+      - Use @media queries for breakpoints
+      - Mobile-first approach
+   
+   BEST PRACTICES:
+   - Use meaningful class names
+   - Avoid inline styles (use CSS file)
+   - Comment your code
+   - Use CSS variables for colors
+   - Test on real devices
+   - Keep it simple - don't over-complicate
+============================================ */

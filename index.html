@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    META TAGS: These tags help browsers and search engines understand your page
+    - charset: Ensures text displays correctly in all languages
+    - viewport: Makes the site responsive on mobile devices (mobile-first approach)
+    - description: Shown in search results, helps with SEO
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional web design and development services for Tulsa businesses. Get a modern, fast, and mobile-friendly website.">
+    <meta name="keywords" content="web design, web development, Tulsa, Oklahoma, local business websites">
+    <meta name="author" content="Your Web Design Agency">
+    
+    <!-- Title appears in browser tab and search results -->
+    <title>Web Design & Development Services | Tulsa, Oklahoma</title>
+    
+    <!-- Link to our custom CSS file (styles.css) -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- 
+    Font imports from Google Fonts
+    These provide modern, professional typefaces:
+    - Poppins: Bold, friendly, great for headings
+    - Inter: Clean, readable, perfect for body text
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 
+    SKIP NAVIGATION LINK (Accessibility)
+    This hidden link allows keyboard users and screen readers to skip to main content
+    It improves accessibility by letting users bypass navigation menus
+    -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- 
+    HEADER / NAVIGATION
+    This is the top section that appears on every page
+    It uses semantic HTML5 <header> tag for better SEO and accessibility
+    -->
+    <header class="header">
+        <!-- 
+        NAVIGATION BAR
+        <nav> is a semantic element that tells search engines this is navigation
+        The container class centers content and controls max-width
+        -->
+        <nav class="navbar container">
+            <!-- 
+            LOGO / BRAND NAME
+            Using <a> tag with href="#" for logo - typically you'd link to homepage
+            The logo is the most important part of the navbar and is usually left-aligned
+            -->
+            <div class="logo">
+                <a href="#home">🌐 Tulsa Web Design</a>
+            </div>
+            
+            <!-- 
+            NAVIGATION LINKS
+            These links help users navigate the site
+            In a real project, you might add a hamburger menu for mobile (JavaScript controlled)
+            -->
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 
+    MAIN CONTENT AREA
+    <main> is a semantic HTML5 element that wraps all primary page content
+    The ID "main-content" is used by the skip navigation link above
+    -->
+    <main id="main-content">
+
+        <!-- ============================================
+             HERO SECTION
+             ============================================
+             
+             This is the first thing visitors see. It should grab attention
+             and clearly communicate what you offer.
+             
+             Why this section matters:
+             - First impressions are critical (visitors decide in 3 seconds)
+             - Strong headline + subheading = clear value proposition
+             - CTA button = converts visitors into leads
+        -->
+        <section class="hero" id="home">
+            <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop')"></div>
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Grow Your Business Online
+                    </h1>
+                    <p class="hero-subtitle">
+                        Modern, fast websites designed and built for Tulsa businesses. 
+                        Get more customers. Build trust. Succeed online.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                            Get a Free Quote
+                        </button>
+                        <button class="btn btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+                            See Our Services
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SERVICES SECTION
+             ============================================
+             
+             This section showcases what you offer
+             Cards make information scannable and organized
+             Icons help users quickly understand each service
+        -->
+        <section class="services" id="services">
+            <div class="container">
+                <!-- 
+                SECTION HEADER
+                All sections have a consistent header with title and description
+                This makes the page feel organized and professional
+                -->
+                <div class="section-header">
+                    <h2>Our Services</h2>
+                    <p>Everything your business needs to succeed online</p>
+                </div>
+                
+                <!-- 
+                SERVICES GRID
+                This creates a responsive grid layout (see CSS for details)
+                On mobile: 1 column
+                On tablet: 2 columns
+                On desktop: 3 columns
+                CSS Grid handles all the layout automatically - no need for floats or flexbox positioning hacks
+                -->
+                <div class="services-grid">
+                    
+                    <!-- SERVICE CARD 1 -->
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop')"></div>
+                        <div class="service-icon">🎨</div>
+                        <h3>Custom Website Design</h3>
+                        <p>
+                            Beautiful, professional designs that reflect your brand 
+                            and attract your ideal customers.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 2 -->
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=250&fit=crop')"></div>
+                        <div class="service-icon">⚙️</div>
+                        <h3>Website Development</h3>
+                        <p>
+                            Fast, secure, and modern websites built with the latest 
+                            technologies and best practices.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 3 -->
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop')"></div>
+                        <div class="service-icon">📱</div>
+                        <h3>Mobile Optimization</h3>
+                        <p>
+                            Fully responsive designs that look perfect on phones, tablets, 
+                            and desktop computers.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 4 -->
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1460925895917-adf4198c838f?w=400&h=250&fit=crop')"></div>
+                        <div class="service-icon">🚀</div>
+                        <h3>Performance & SEO</h3>
+                        <p>
+                            Lightning-fast websites optimized for search engines, 
+                            so your customers can find you.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 5 -->
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1494496195356-3bddbc3aa4d0?w=400&h=250&fit=crop')"></div>
+                        <div class="service-icon">🔄</div>
+                        <h3>Redesigns & Updates</h3>
+                        <p>
+                            Modernize your existing website with new designs, 
+                            features, and improved functionality.
+                        </p>
+                    </div>
+
+                    <!-- SERVICE CARD 6 -->
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=250&fit=crop')"></div>
+                        <div class="service-icon">💼</div>
+                        <h3>Ongoing Support</h3>
+                        <p>
+                            Reliable support and maintenance to keep your website 
+                            running smoothly and secure.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             WHY CHOOSE US SECTION
+             ============================================
+             
+             This section builds trust and credibility
+             It should emphasize what makes you different
+             Local focus is key for attracting Tulsa businesses
+        -->
+        <section class="why-us" id="why-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose Us</h2>
+                    <p>We're local, fast, and focused on your success</p>
+                </div>
+
+                <!-- 
+                FEATURES LIST
+                This uses CSS Grid for responsive layout
+                Each feature is a separate div with icon and text
+                -->
+                <div class="features-grid">
+                    
+                    <!-- FEATURE 1: Local Focus -->
+                    <div class="feature">
+                        <!-- Feature number or icon -->
+                        <div class="feature-number">1</div>
+                        <h3>Based in Tulsa</h3>
+                        <p>
+                            We're local and understand Tulsa's business community. 
+                            Personal communication, not a faceless corporation.
+                        </p>
+                    </div>
+
+                    <!-- FEATURE 2: Fast Turnaround -->
+                    <div class="feature">
+                        <div class="feature-number">2</div>
+                        <h3>Quick Turnaround</h3>
+                        <p>
+                            We move fast without sacrificing quality. 
+                            Get your website live sooner, not later.
+                        </p>
+                    </div>
+
+                    <!-- FEATURE 3: Affordable -->
+                    <div class="feature">
+                        <div class="feature-number">3</div>
+                        <h3>Affordable Pricing</h3>
+                        <p>
+                            Professional websites don't have to cost a fortune. 
+                            We offer fair pricing for Tulsa small businesses.
+                        </p>
+                    </div>
+
+                    <!-- FEATURE 4: Modern Standards -->
+                    <div class="feature">
+                        <div class="feature-number">4</div>
+                        <h3>Modern & Mobile-First</h3>
+                        <p>
+                            Built with current web standards and best practices. 
+                            Works perfectly on all devices.
+                        </p>
+                    </div>
+
+                    <!-- FEATURE 5: Results-Focused -->
+                    <div class="feature">
+                        <div class="feature-number">5</div>
+                        <h3>Results-Focused</h3>
+                        <p>
+                            We don't just build websites. 
+                            We build websites that get you customers.
+                        </p>
+                    </div>
+
+                    <!-- FEATURE 6: Communication -->
+                    <div class="feature">
+                        <div class="feature-number">6</div>
+                        <h3>Clear Communication</h3>
+                        <p>
+                            We explain everything in plain English, 
+                            so you understand exactly what you're getting.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             PROCESS SECTION
+             ============================================
+             
+             This shows how you work and sets expectations
+             Transparency builds trust and reduces uncertainty
+             Step-by-step format is easy to follow
+        -->
+        <section class="process" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Process</h2>
+                    <p>From idea to launch, we make it simple</p>
+                </div>
+
+                <!-- 
+                PROCESS STEPS
+                This uses a CSS Grid layout that adapts to screen size
+                On mobile: stacked vertically
+                On desktop: 4 columns side-by-side
+                -->
+                <div class="process-steps">
+                    
+                    <!-- STEP 1: Discovery -->
+                    <div class="process-step">
+                        <!-- Step number - visual indicator of progress -->
+                        <div class="step-number">1</div>
+                        <h3>Discovery</h3>
+                        <p>
+                            We learn about your business, goals, and target audience. 
+                            This foundation guides everything we build.
+                        </p>
+                    </div>
+
+                    <!-- STEP 2: Design -->
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Design</h3>
+                        <p>
+                            We create beautiful mockups that show exactly what your 
+                            website will look like before we code.
+                        </p>
+                    </div>
+
+                    <!-- STEP 3: Development -->
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Development</h3>
+                        <p>
+                            We build your website with clean, modern code that's 
+                            fast, secure, and easy to maintain.
+                        </p>
+                    </div>
+
+                    <!-- STEP 4: Launch -->
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Launch & Support</h3>
+                        <p>
+                            Your website goes live! We provide training and ongoing 
+                            support to keep everything running smoothly.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             TESTIMONIALS / SOCIAL PROOF SECTION
+             ============================================
+             
+             This builds credibility by showing real results
+             People trust other people more than companies
+             Testimonials are powerful conversion tools
+        -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Clients Say</h2>
+                    <p>Results from real Tulsa businesses</p>
+                </div>
+
+                <!-- 
+                TESTIMONIALS GRID
+                Shows multiple client testimonials
+                This example uses placeholder text - replace with real testimonials
+                -->
+                <div class="testimonials-grid">
+                    
+                    <!-- TESTIMONIAL 1 -->
+                    <div class="testimonial-card">
+                        <div class="client-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop')"></div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="quote">
+                            "Our new website brought in 3x more customers in the first month. 
+                            The team was professional and easy to work with."
+                        </p>
+                        <div class="client-info">
+                            <strong>Sarah Johnson</strong>
+                            <p>Johnson's Plumbing, Tulsa</p>
+                        </div>
+                    </div>
+
+                    <!-- TESTIMONIAL 2 -->
+                    <div class="testimonial-card">
+                        <div class="client-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop')"></div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="quote">
+                            "Finally, a web designer who understands small business. 
+                            Fast, affordable, and my website actually works!"
+                        </p>
+                        <div class="client-info">
+                            <strong>Michael Torres</strong>
+                            <p>Torres Salon & Spa, Tulsa</p>
+                        </div>
+                    </div>
+
+                    <!-- TESTIMONIAL 3 -->
+                    <div class="testimonial-card">
+                        <div class="client-avatar" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop')"></div>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="quote">
+                            "I was skeptical about the cost, but the ROI was incredible. 
+                            Highly recommend for any Tulsa business."
+                        </p>
+                        <div class="client-info">
+                            <strong>Emma Williams</strong>
+                            <p>Williams Real Estate, Tulsa</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             FINAL CALL-TO-ACTION (CTA) SECTION
+             ============================================
+             
+             This is the last push before the contact form
+             Make it compelling and easy to take action
+             Should be visually distinct from other sections
+        -->
+        <section class="final-cta">
+            <div class="cta-background" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=400&fit=crop')"></div>
+            <div class="cta-overlay"></div>
+            <div class="container">
+                <div style="position: relative; z-index: 3;">
+                    <h2>Ready to Grow Your Business Online?</h2>
+                    <p>Let's talk about your project. It's free, and we'd love to help.</p>
+                    <button class="btn btn-primary btn-large" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                        Get a Free Quote Today
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             CONTACT / FORM SECTION
+             ============================================
+             
+             This is where visitors become leads
+             Simple, clean form with clear labels
+             Each input is properly labeled for accessibility
+        -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get Your Free Quote</h2>
+                    <p>Tell us about your project</p>
+                </div>
+
+                <!-- 
+                CONTACT FORM
+                <form> is a semantic HTML5 element for collecting user input
+                action="": In a real project, this would process the form (backend)
+                For now, this is HTML-only (JavaScript would handle it)
+                -->
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/mqeapved" method="POST">
+                    
+                    <!-- 
+                    FORM ROW: Name and Email (side-by-side on desktop)
+                    On mobile, these stack vertically
+                    -->
+                    <div class="form-row">
+                        <!-- NAME INPUT -->
+                        <div class="form-group">
+                            <!-- 
+                            LABEL ELEMENT
+                            Every <input> should have a <label> for accessibility
+                            The "for" attribute connects it to the input ID
+                            Screen readers use labels to understand form fields
+                            -->
+                            <label for="name">Your Name *</label>
+                            <!-- 
+                            TEXT INPUT
+                            type="text": Accepts any text
+                            required: Browser validates before submission
+                            placeholder: Example text inside the input (disappears when user types)
+                            -->
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="John Smith"
+                                required
+                            >
+                        </div>
+
+                        <!-- EMAIL INPUT -->
+                        <div class="form-group">
+                            <label for="email">Your Email *</label>
+                            <!-- 
+                            type="email": Browser validates email format
+                            Helps with mobile keyboards (shows @ and . keys)
+                            -->
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="john@example.com"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- 
+                    FORM ROW: Company and Phone
+                    -->
+                    <div class="form-row">
+                        <!-- COMPANY INPUT -->
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <!-- Not required - user can skip if needed -->
+                            <input 
+                                type="text" 
+                                id="company" 
+                                name="company" 
+                                placeholder="Your Company"
+                            >
+                        </div>
+
+                        <!-- PHONE INPUT -->
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="(918) 555-1234"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- 
+                    SINGLE FORM ROW: Service Interest
+                    This helps segment leads by what they're interested in
+                    -->
+                    <div class="form-group">
+                        <label for="service">What service interests you most?</label>
+                        <!-- 
+                        SELECT DROPDOWN
+                        <option> elements are the choices
+                        First option is placeholder (disabled)
+                        -->
+                        <select id="service" name="service">
+                            <option value="" disabled selected>Choose a service...</option>
+                            <option value="new-website">New Website</option>
+                            <option value="redesign">Website Redesign</option>
+                            <option value="optimization">Performance & SEO</option>
+                            <option value="mobile">Mobile Optimization</option>
+                            <option value="other">Other / Not Sure</option>
+                        </select>
+                    </div>
+
+                    <!-- 
+                    FULL-WIDTH FORM ROW: Message
+                    This allows customers to tell us more details
+                    -->
+                    <div class="form-group">
+                        <label for="message">Tell us about your project *</label>
+                        <!-- 
+                        TEXTAREA
+                        Like <input> but for multi-line text
+                        rows="5": Shows 5 lines of text at a time
+                        wrap="soft": Text wraps visually but doesn't add line breaks
+                        -->
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="5"
+                            placeholder="What are your goals? What's your budget? Tell us anything that helps us understand your needs..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <!-- 
+                    FORM SUBMISSION ROW
+                    -->
+                    <div class="form-actions">
+                        <!-- 
+                        SUBMIT BUTTON
+                        type="submit": Sends the form data
+                        In this case, JavaScript will handle it (see script.js)
+                        -->
+                        <button type="submit" class="btn btn-primary btn-large">
+                            Send Me a Quote
+                        </button>
+                        <!-- 
+                        NOTICE TEXT
+                        Reassures users about privacy and response time
+                        Increases trust and form completion rates
+                        -->
+                        <p class="form-notice">
+                            ✓ We'll respond within 24 hours
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================
+         
+         Footer provides important information and navigation
+         Should include: company info, contact, legal, navigation
+         Proper footer structure improves SEO and user experience
+    -->
+    <footer class="footer">
+        <div class="container">
+            <!-- 
+            FOOTER GRID
+            Three columns: Info, Navigation, Contact
+            Stacks on mobile, side-by-side on desktop
+            -->
+            <div class="footer-grid">
+                
+                <!-- FOOTER COLUMN 1: About -->
+                <div class="footer-column">
+                    <h4>About Us</h4>
+                    <p>
+                        We're a web design and development team based in Tulsa, Oklahoma, 
+                        dedicated to helping local businesses succeed online.
+                    </p>
+                </div>
+
+                <!-- FOOTER COLUMN 2: Navigation -->
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <!-- 
+                    FOOTER NAVIGATION LINKS
+                    These can be the same as header nav or different
+                    -->
+                    <ul class="footer-links">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- FOOTER COLUMN 3: Contact Info -->
+                <div class="footer-column">
+                    <h4>Get In Touch</h4>
+                    <ul class="footer-contact">
+                        <li>📍 Tulsa, Oklahoma</li>
+                        <li>📧 <a href="mailto:hello@example.com">hello@example.com</a></li>
+                        <li>📱 <a href="tel:+19185551234">(918) 555-1234</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- 
+            FOOTER BOTTOM
+            Copyright and legal info
+            -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tulsa Web Design. All rights reserved.</p>
+                <p>Serving Tulsa, Oklahoma | Local Business Websites</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+    JAVASCRIPT FILE
+    This adds interactivity to the site
+    Placed at bottom so page loads before JavaScript runs
+    -->
+    <script src="script.js"></script>
+</body>
+</html>
