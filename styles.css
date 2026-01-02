@@ -558,53 +558,133 @@ p {
    Each benefit/feature in the grid
 */
 .feature {
-    background-color: var(--white);
-    padding: 2.5rem;
-    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
     text-align: center;
-    transition: all 0.4s ease;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 102, 204, 0.05);
+    border: 1px solid rgba(0, 102, 204, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .feature:hover {
-    box-shadow: 0 15px 40px rgba(0, 102, 204, 0.15);
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
+    box-shadow: 0 20px 60px rgba(0, 102, 204, 0.2), 0 8px 20px rgba(255, 107, 53, 0.1);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(0, 102, 204, 0.3);
+}
+
+.feature:hover::before {
+    opacity: 1;
 }
 
 /* 
    FEATURE NUMBER
-   The numbered circles (1, 2, 3, etc.)
+   The numbered circles (1, 2, 3, etc.) or location badges
    
    width/height = square shape
    display: flex + align-items/justify-content = center content
-   background-color: gradient from blue to purple
+   background-color: gradient from blue to orange
 */
 .feature-number {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    min-width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 50%, #ff6b35 100%);
     color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: 0 auto 1.5rem;
-    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 auto 2rem;
+    box-shadow: 0 12px 28px rgba(0, 102, 204, 0.35), 0 4px 12px rgba(255, 107, 53, 0.2);
+    position: relative;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+    padding: 0 1rem;
+    letter-spacing: 0.5px;
+}
+
+.feature-number::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feature:hover .feature-number {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 16px 36px rgba(0, 102, 204, 0.45), 0 6px 16px rgba(255, 107, 53, 0.3);
+}
+
+.feature:hover .feature-number::after {
+    opacity: 0.3;
+}
+
+/* Location image styling for service area cards */
+.location-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.location-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.feature:hover .location-image {
+    transform: scale(1.05);
+    box-shadow: 0 16px 40px rgba(0, 102, 204, 0.2);
+}
+
+.feature:hover .location-image::before {
+    opacity: 0.3;
 }
 
 
 .feature h3 {
     color: var(--text-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .feature p {
-    color: var(--text-light);
-    font-size: 0.95rem;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 400;
 }
 
 
